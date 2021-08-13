@@ -1,3 +1,4 @@
-export default function Example() {
-  return <div>Home</div>;
+import Map from "../component/Map";
+export default function Home() {
+  return <Map />;
 }
