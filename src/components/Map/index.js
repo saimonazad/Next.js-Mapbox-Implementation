@@ -1,11 +1,10 @@
 //import lib
 import React, { useState } from "react";
-import ReactMapGL, { Layer, Source } from "react-map-gl";
+import MapGL, { Layer, Source } from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import useSWR from "swr";
 
-const MAPBOX_TOKEN =
-  "pk.eyJ1Ijoia2t1cnR6IiwiYSI6ImNrOWE4djN1eDAyd3UzZXBuYzF1OWtjYTQifQ.obmfLm5bA5yqrac86Fw8GQ";
+const MAPBOX_TOKEN = process.env.MAPBOX_TOKEN;
 
 //layer style
 const layerStyle = {
@@ -13,7 +12,7 @@ const layerStyle = {
   type: "line",
   paint: {
     "line-color": "#877b59",
-    "line-width": 1,
+    "line-width": 2,
   },
 };
 
@@ -21,8 +20,8 @@ const layerStyle = {
 const Map = () => {
   const [viewport, setViewport] = useState({
     latitude: 37.8,
-    longitude: -122.4,
-    zoom: 2,
+    longitude: -95.4,
+    zoom: 3.7,
     bearing: 0,
     pitch: 0,
   });
@@ -33,7 +32,7 @@ const Map = () => {
   );
 
   return (
-    <ReactMapGL
+    <MapGL
       {...viewport}
       width="100%"
       height="100vh"
@@ -43,7 +42,7 @@ const Map = () => {
       <Source id="my-data" type="geojson" data={geojson}>
         <Layer {...layerStyle} />
       </Source>
-    </ReactMapGL>
+    </MapGL>
   );
 };
 
