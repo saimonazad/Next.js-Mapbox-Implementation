@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 //import component
 import Navbar from "./Navbar";
 import Header from "./Header";
@@ -6,7 +6,7 @@ import Header from "./Header";
 //main func
 const Layout = ({ children }) => {
   return (
-    <>
+    <Fragment>
       <Navbar />
       <Header />
       <main>
@@ -16,7 +16,7 @@ const Layout = ({ children }) => {
           {/* /End replace */}
         </div>
       </main>
-    </>
+    </Fragment>
   );
 };
 
